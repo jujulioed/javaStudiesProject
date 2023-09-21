@@ -4,7 +4,11 @@
  */
 package model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,11 +29,15 @@ abstract public class Person {
         this.name = name;
     }
 
-    public Person(int id, String name, char gender, Date dateOfBirth, String phoneNumber, String email, String rg) {
+    public Person(int id, String name, char gender, String dateOfBirth, String phoneNumber, String email, String rg) {
         this.id = id;
         this.name = name;
         this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
+        try {
+            this.dateOfBirth = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(dateOfBirth);
+        } catch (ParseException ex) {
+            Logger.getLogger(Person.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.rg = rg;

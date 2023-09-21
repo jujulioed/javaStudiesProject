@@ -21,7 +21,7 @@ public class User extends Person {
         this.accessLevel = accessLevel;
     }
 
-    public User(int id, String name, char gender, Date dateOfBirth, String phoneNumber, String email, String rg, String password, String accessLevel) {
+    public User(int id, String name, char gender, String dateOfBirth, String phoneNumber, String email, String rg, String password, String accessLevel) {
         super(id, name, gender, dateOfBirth, phoneNumber, email, rg);
         this.password = password;
         this.accessLevel = accessLevel;
