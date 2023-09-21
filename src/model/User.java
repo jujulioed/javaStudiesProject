@@ -10,42 +10,21 @@ import java.util.Date;
  *
  * @author duke
  */
-public class User {
-    
-    private int id;
-    private String name;
-    private String password;
-    private String accessLevel;
-    private char gender;
-    private Date dateOfBirth;
-    private String phoneNumber;
-    private String email;
-    private String rg;
+public class User extends Person {
 
-    public User(int id, String name, String password, String accessLevel, char gender, Date dateOfBirth, String phoneNumber, String email, String rg) {
-        this.id = id;
-        this.name = name;
+    protected String password;
+    protected String accessLevel;
+
+    public User(int id, String name, String password, String accessLevel) {
+        super(id, name);
         this.password = password;
         this.accessLevel = accessLevel;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.rg = rg;
     }
 
-    public User(int id, String name, String password) {
-        this.id = id;
-        this.name = name;
+    public User(int id, String name, char gender, Date dateOfBirth, String phoneNumber, String email, String rg, String password, String accessLevel) {
+        super(id, name, gender, dateOfBirth, phoneNumber, email, rg);
         this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        this.accessLevel = accessLevel;
     }
 
     public String getPassword() {
@@ -63,45 +42,5 @@ public class User {
     public void setAccessLevel(String accessLevel) {
         this.accessLevel = accessLevel;
     }
-
-    public char getGender() {
-        return gender;
-    }
-
-    public void setGender(char gender) {
-        this.gender = gender;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-        
+ 
 }

@@ -22,11 +22,11 @@ public class Main {
         
         System.out.println(barba.getDescription());
         
-        Client cliente = new Client(1, "Julio", 'm', "1999426773", "Rua José 995" );
+        Client cliente = new Client(1, "Julio", "Rua teSte", "13154515");
         
         System.out.println(cliente.getName());
         
-        User usuario = new User(1, "barbeiro", "senha");
+        User usuario = new User(1, "barbeiro", "senha", "3");
         System.out.println(usuario);
         
     }
