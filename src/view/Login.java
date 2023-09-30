@@ -4,17 +4,25 @@
  */
 package view;
 
+import controller.LoginController;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author duke
  */
 public class Login extends javax.swing.JFrame {
+    
+    private final LoginController controller;
 
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        controller = new LoginController(this);
     }
 
     /**
@@ -26,6 +34,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        enter = new javax.swing.JButton();
         passField = new javax.swing.JPasswordField();
         userField = new javax.swing.JTextField();
         passText = new javax.swing.JLabel();
@@ -36,14 +45,25 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(passField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 210, 40));
+
+        enter.setBackground(new java.awt.Color(51, 51, 51));
+        enter.setFont(new java.awt.Font("Notes", 0, 18)); // NOI18N
+        enter.setForeground(new java.awt.Color(255, 255, 255));
+        enter.setText("Entrar");
+        enter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 470, 210, 40));
+        getContentPane().add(passField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 210, 40));
 
         userField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(userField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 210, 40));
+        getContentPane().add(userField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 210, 40));
 
         passText.setFont(new java.awt.Font("Notes", 0, 24)); // NOI18N
         passText.setForeground(new java.awt.Color(255, 255, 255));
@@ -51,7 +71,7 @@ public class Login extends javax.swing.JFrame {
         passText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         passText.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         passText.setName(""); // NOI18N
-        getContentPane().add(passText, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, -1, -1));
+        getContentPane().add(passText, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, -1, -1));
 
         userText.setFont(new java.awt.Font("Notes", 0, 24)); // NOI18N
         userText.setForeground(new java.awt.Color(255, 255, 255));
@@ -81,6 +101,10 @@ public class Login extends javax.swing.JFrame {
     private void userFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userFieldActionPerformed
+
+    private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
+        controller.FizTarefa();
+    }//GEN-LAST:event_enterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,6 +143,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundLogin;
+    private javax.swing.JButton enter;
     private javax.swing.JLabel loginPanel;
     private javax.swing.JLabel loginText;
     private javax.swing.JPasswordField passField;
@@ -126,4 +151,25 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField userField;
     private javax.swing.JLabel userText;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagem(String msg) {
+        JOptionPane.showMessageDialog(null, msg);
+    }
+
+    public JPasswordField getPassField() {
+        return passField;
+    }
+
+    public void setPassField(JPasswordField passField) {
+        this.passField = passField;
+    }
+
+    public JTextField getUserField() {
+        return userField;
+    }
+
+    public void setUserField(JTextField userField) {
+        this.userField = userField;
+    }    
+    
 }
